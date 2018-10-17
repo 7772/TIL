@@ -1,6 +1,4 @@
-# Today I Learned
-
-## 인사이트 자바스크립트(송형주, 고현준) 저서에서
+# 인사이트 자바스크립트(송형주, 고현준) 저서에서
 
 - function statement 와 function expression (p.77)
     1. function statement
