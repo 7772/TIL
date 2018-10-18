@@ -74,5 +74,25 @@
         console.log(add.result);    // 5
         console.log(add.status);    // 'OK'
         ```
+- arguments 객체 (p.100)
+
+    1. 실행된 함수의 내부에는 arguments 라는 유사배열객체가 있음.
+    2. 다음과 같이 유용하게 사용이 가능.
+        ```
+        function sum() {
+            var result = 0;
+        
+            for (var i = 0; i < arguments.length; i++) {
+                result += arguments[i];    
+            }   
+
+            return result;
+        }   
+
+        console.log(sum(1, 2, 3));
+        console.log(sum(1, 2, 3, 4, 5, 6));
+        ```
+    
+        * 위와 같이 인자의 개수와는 상관없이 어떤 함수를 구현하고자 할때 유용하게 쓰임. 
 
 
