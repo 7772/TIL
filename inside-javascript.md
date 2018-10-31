@@ -95,4 +95,38 @@
     
         * 위와 같이 인자의 개수와는 상관없이 어떤 함수를 구현하고자 할때 유용하게 쓰임. 
 
+- Inheritance (p.174)
 
+    1. 프로토타입을 이용한 상속
+        * 자바스크립트는 클래스 기반 상속을 지원하지 않는다.
+        * 프로토타입을 이용하여 상속을 구현할 수 있다.
+        ```
+        function create_object(o) {
+            function F() {}
+            F.prototype = 0;
+            return new F();    
+        }
+        ```
+        * 위 코드는 인자로 들어오는 객체 o 를 상속받은 새로운 객체를 리턴하는 예제이다. (더글라스 크락포드)
+
+        ```
+        var person = {
+            name: "landon",
+            getName: function() {
+                return this.name;    
+            },
+            setName: function(arg) {
+                this.name = arg;    
+            }    
+        };
+
+        function create_object(o) {
+            function F() {}
+            F.prototype = o;
+            return new F();    
+        }
+
+        var student = create_object(person);
+        console.log(student.getName());         // Landon
+        student.setName("Eumji");
+        console.log(student.getName());         // Eumji
