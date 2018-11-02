@@ -98,6 +98,7 @@
 - Inheritance (p.174)
 
     1. 프로토타입을 이용한 상속
+
         * 자바스크립트는 클래스 기반 상속을 지원하지 않는다.
         * 프로토타입을 이용하여 상속을 구현할 수 있다.
         ```
@@ -130,3 +131,53 @@
         console.log(student.getName());         // Landon
         student.setName("Eumji");
         console.log(student.getName());         // Eumji
+        ```
+
+    2. extend 함수를 활용한 상속 구현 (p. 181)
+
+        * 부모 객체의 메서드를 그대로 상속받아 사용하는 것을 넘어, 자식 객체는 자신의 메서드를 재정의 혹은 추가로 기능을 더 확장 시킬 수 있다.
+        ```    
+        student.setAge = function(age) {...}
+        student.getAge = function() {...}
+        ```
+        * 그러나 위와 같은 코드를 계속 추가하는 것은 보기좋은 코드는 아니다. 
+
+        * extend 함수 활용법
+        ```
+        var person = {
+	        name: "landon"
+        };
+
+        function create_object(o) {
+	        function F() {};
+	        F.prototype = o;
+	        return new F();
+        }
+
+        function extend(obj, prop) {
+	        if (!prop) { prop = obj, obj = this; }
+	        for (var i in prop) obj[i] = prop[i];
+	        return obj;
+        }
+
+        var student = create_object(person);
+
+        var added = {
+	        setAge: function(age) {
+                this.age = age;
+            },
+	        getAge: function() {
+		        return this.age;
+	        }
+        };
+
+        extend(student, added);
+
+        student.setAge(25);
+        console.log(student.getAge()); 
+        ```
+
+        * 위 코드를 사용할 땐, shallow copy 라는 것을 유념할 것.
+
+        
+
