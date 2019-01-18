@@ -2,9 +2,10 @@
 
 Deep Link 는 특정 url 을 이용해 사용자를 원하는 특정 도메인으로 이동시키는 기술을 말함.
 
-Android, iOS 는 각자 다른 이름으로 해당 기능을 지원함.
+그러한 기술들 중에서 최근에 Web URL 을 그대로 이용하는 방식이 적용된 것이 다음과 같음.
 
 Android : Android App Links
+
 iOS     : Universial Links
 
 ## 기존 URL Schema 의 기술과의 차이점
